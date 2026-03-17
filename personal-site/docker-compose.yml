@@ -1,0 +1,8 @@
+services:
+  web:
+    build:
+      context: .
+    container_name: personal-site
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
