@@ -13,9 +13,11 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(247, 245, 241, 0.78) 48%, rgba(242, 240, 236, 0.92) 100%);
-  color: #161616;
-  font-family: "Avenir Next", "Inter", "Segoe UI", sans-serif;
+    radial-gradient(circle at top, rgba(190, 170, 128, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(158, 177, 191, 0.2), transparent 24%),
+    linear-gradient(180deg, #f8f4ed 0%, #f5f0e7 42%, #efebe3 100%);
+  color: #1f2833;
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
 }
 
 a {
@@ -28,9 +30,119 @@ a {
 }
 
 ::selection {
-  background: rgba(22, 22, 22, 0.12);
+  background: rgba(190, 170, 128, 0.32);
 }
 
 .balance {
   text-wrap: balance;
+}
+
+.site-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(190, 170, 128, 0.16), transparent 24rem),
+    radial-gradient(circle at 75% 18%, rgba(158, 177, 191, 0.14), transparent 22rem);
+  opacity: 1;
+}
+
+.scene-panel {
+  border: 1px solid rgba(120, 128, 138, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.92), rgba(248, 244, 237, 0.96));
+  box-shadow: 0 26px 60px rgba(109, 96, 74, 0.1);
+}
+
+.scene-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.eyebrow-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(95, 104, 116, 0.82);
+}
+
+.section-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(190, 170, 128, 0.56), rgba(190, 170, 128, 0));
+}
+
+.meta-pill {
+  border: 1px solid rgba(120, 128, 138, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(76, 84, 96, 0.86);
+}
+
+.carousel-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.tesla-slide {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(135deg, rgba(127, 143, 160, 0.92), rgba(60, 77, 96, 0.95) 48%, rgba(27, 34, 44, 0.98));
+  box-shadow: 0 34px 80px rgba(66, 72, 84, 0.22);
+}
+
+.tesla-slide-image {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  opacity: 0.34;
+  transform: scale(1.02);
+  filter: saturate(0.82) contrast(0.95) brightness(0.9);
+}
+
+.tesla-slide-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 22, 31, 0.26), rgba(12, 18, 28, 0.64) 62%, rgba(9, 13, 20, 0.84)),
+    linear-gradient(90deg, rgba(18, 25, 35, 0.5), transparent 34%, rgba(15, 22, 31, 0.48));
+}
+
+.tesla-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 38%),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.18), transparent 18rem);
+  opacity: 0.9;
+}
+
+.tesla-slide-overlay {
+  position: absolute;
+  inset: auto -8% -24% 18%;
+  height: 17rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 214, 153, 0.18), transparent 66%);
+  filter: blur(18px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button,
+  article,
+  div {
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
 }

@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+
+const sans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jingxuanlyu.com"),
@@ -28,23 +40,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="relative min-h-screen bg-canvas text-ink antialiased">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[20rem] sm:h-[24rem]"
-          style={{
-            backgroundColor: "rgb(247, 245, 241)",
-            backgroundImage:
-              "linear-gradient(180deg, rgba(247, 245, 241, 0) 0%, rgba(247, 245, 241, 0.2) 52%, rgba(247, 245, 241, 0.96) 100%), url('/painting-detail-transparent.png')",
-            backgroundPosition: "center top, right top",
-            backgroundRepeat: "no-repeat, no-repeat",
-            backgroundSize: "100% 100%, min(52.5rem, 65vw) auto",
-          }}
-        />
-        <div className="relative mx-auto flex min-h-screen max-w-[96rem] flex-col px-4 sm:px-6 lg:px-8">
+      <body
+        className={`${sans.variable} ${serif.variable} relative min-h-screen bg-canvas text-ink antialiased`}
+      >
+        <div aria-hidden="true" className="site-atmosphere" />
+        <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <div className="mx-auto flex w-full max-w-[104rem] flex-1 flex-col px-4 sm:px-6 lg:px-10">
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
         </div>
       </body>
     </html>

@@ -9,22 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#f7f5f1",
-        surface: "#ffffff",
-        ink: "#161616",
-        muted: "#5f5f5f",
-        border: "#d8d6d1",
-        accent: "#ece8e1",
+        canvas: "#f7f3ec",
+        surface: "#fffdf8",
+        ink: "#1f2833",
+        muted: "#5f6773",
+        border: "#d6d0c6",
+        accent: "#b8a57c",
+        panel: "#f3ede4",
+        fog: "#e6e0d6",
       },
       boxShadow: {
-        card: "0 18px 40px rgba(17, 17, 17, 0.06)",
+        card: "0 26px 60px rgba(109, 96, 74, 0.1)",
       },
       fontFamily: {
-        sans: ["Avenir Next", "Inter", "Segoe UI", "sans-serif"],
-        serif: ["Iowan Old Style", "Palatino Linotype", "Book Antiqua", "serif"],
+        sans: ["var(--font-sans)", "Segoe UI", "sans-serif"],
+        serif: ["var(--font-serif)", "Iowan Old Style", "serif"],
       },
       maxWidth: {
-        content: "72rem",
+        content: "78rem",
       },
       letterSpacing: {
         tightest: "-0.04em",

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
 import { contactLinks } from "@/data/portfolio";
 
 export const metadata = {
@@ -17,95 +15,97 @@ export default function ContactPage() {
   );
 
   return (
-    <Container className="space-y-12 py-12 sm:py-16">
-      <PageHero
-        eyebrow="Contact"
-        title="Let’s connect."
-        description="I’m open to internship opportunities, research conversations, project collaboration, and thoughtful introductions."
-      />
-
-      <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="rounded-[2rem] border border-border bg-surface p-6 shadow-card sm:p-8">
-          <SectionHeading
-            eyebrow="Reach Out"
-            title="The best way to contact me"
-            description="For recruiting, academic inquiries, or project conversations, email is usually the fastest path."
+    <Container className="max-w-[92rem] space-y-12 py-12 sm:py-16 xl:max-w-[96rem]">
+      <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)]">
+        <article className="scene-panel relative overflow-hidden rounded-[2.8rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(190,170,128,0.18),transparent_24rem),radial-gradient(circle_at_82%_18%,rgba(158,177,191,0.16),transparent_18rem)]"
           />
-          <div className="mt-8 space-y-4 text-base leading-8 text-muted">
-            <p>
-              I appreciate concise outreach with context on the role, team, or
-              collaboration. If you are a recruiter or professor, feel free to
-              include timelines, relevant links, and what you would like me to
-              prepare.
+          <div className="relative z-10">
+            <div className="eyebrow-label">Transmission / Contact</div>
+            <div className="section-rule mt-5 max-w-56" />
+            <h1 className="balance mt-8 max-w-4xl font-serif text-[3.3rem] leading-[0.9] tracking-tightest text-ink sm:text-[4.4rem] lg:text-[5.3rem]">
+              For internships, research, and thoughtful introductions.
+            </h1>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg">
+              Email is usually the clearest route. I appreciate concise
+              outreach with enough context to understand the role, team,
+              timeline, or collaboration.
             </p>
-            <div className="rounded-[1.5rem] border border-border bg-canvas p-5">
-              <p className="text-sm uppercase tracking-[0.18em] text-muted">
-                Fastest Response
-              </p>
-              <div className="mt-4 space-y-4">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-                    Personal Email
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {primaryContacts.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="rounded-[1.8rem] border border-[rgba(190,170,128,0.24)] bg-[linear-gradient(180deg,rgba(190,170,128,0.16),rgba(255,251,244,0.74))] p-6 shadow-card hover:bg-[linear-gradient(180deg,rgba(190,170,128,0.2),rgba(255,251,244,0.82))]"
+                >
+                  <p className="eyebrow-label">{link.label}</p>
+                  <p className="mt-4 text-lg font-semibold leading-7 text-ink sm:text-xl">
+                    {link.value}
                   </p>
-                  <p className="mt-2 text-lg font-semibold leading-7 text-ink sm:text-xl">
-                    john.lyu.bj@hotmail.com
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-                    Berkeley Email
-                  </p>
-                  <p className="mt-2 text-lg font-semibold leading-7 text-ink sm:text-xl">
-                    jingxuan.lyu@berkeley.edu
-                  </p>
-                </div>
-              </div>
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
+        </article>
 
-        <div className="space-y-4">
-          <div className="grid gap-4">
-            {primaryContacts.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="rounded-[1.5rem] border border-[#6f6a61] bg-[#8f877a] p-6 text-white shadow-card transition hover:opacity-92"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.18em] text-white/70">
-                      {link.label}
-                    </p>
-                    <p className="mt-3 text-lg font-semibold leading-7 sm:text-xl">
-                      {link.value}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-white/20 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/80">
-                    Email
-                  </span>
-                </div>
-              </Link>
-            ))}
+        <aside className="grid gap-6">
+          <article className="scene-panel rounded-[2.3rem] px-6 py-7">
+            <p className="eyebrow-label">Protocol</p>
+            <h2 className="mt-6 font-serif text-3xl leading-tight text-ink">
+              The clearest path to reach me.
+            </h2>
+            <div className="mt-6 space-y-4 text-sm leading-7 text-muted">
+              <p>
+                For recruiting, academic inquiries, or project conversations,
+                email remains the fastest and most reliable channel.
+              </p>
+              <p>
+                Including timelines, links, and what you would like me to
+                prepare makes it easier to respond helpfully.
+              </p>
+            </div>
+          </article>
+
+          <article className="rounded-[2.3rem] border border-[rgba(120,128,138,0.14)] bg-[rgba(255,255,255,0.66)] px-6 py-7">
+            <p className="eyebrow-label">Response Bias</p>
+            <p className="mt-5 text-base leading-8 text-muted">
+              Concise, well-scoped messages are the easiest to act on quickly.
+            </p>
+          </article>
+        </aside>
+      </section>
+
+      <section className="scene-panel rounded-[2.5rem] px-6 py-7 sm:px-8 sm:py-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-start">
+          <div>
+            <div className="eyebrow-label">Channels</div>
+            <div className="section-rule mt-5 max-w-40" />
+            <h2 className="mt-7 font-serif text-4xl leading-none tracking-tightest text-ink sm:text-5xl">
+              Other ways in.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-8 text-muted">
+              External profiles and supporting links for continued
+              conversation.
+            </p>
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
             {secondaryContacts.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="rounded-[1.5rem] border border-[#6f6a61] bg-[#8f877a] p-6 text-white shadow-card transition hover:opacity-92"
+                className="rounded-[1.8rem] border border-[rgba(120,128,138,0.14)] bg-[rgba(255,255,255,0.56)] p-6 hover:border-[rgba(190,170,128,0.32)]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-sm uppercase tracking-[0.18em] text-white/70">
-                      {link.label}
-                    </p>
-                    <p className="mt-3 text-base font-medium text-white sm:text-lg">
+                    <p className="eyebrow-label">{link.label}</p>
+                    <p className="mt-4 text-base font-medium leading-7 text-ink sm:text-lg">
                       {link.value}
                     </p>
                   </div>
-                  <span className="text-xl text-white/75">↗</span>
+                  <span className="text-xl text-muted">↗</span>
                 </div>
               </Link>
             ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -12,11 +13,15 @@ const links = [
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+      const nextScrollY = window.scrollY;
+      setIsScrolled(nextScrollY > 24);
+      setScrollProgress(Math.min(nextScrollY / 180, 1));
     };
 
     handleScroll();
@@ -27,32 +32,37 @@ export function SiteHeader() {
     };
   }, []);
 
+  const headerBackground = `rgba(255, 255, 255, ${0.12 + scrollProgress * 0.84})`;
+
   return (
     <header
+      style={{ backgroundColor: headerBackground }}
       className={`sticky z-20 transition-all duration-300 ${
-        isScrolled
-          ? "-mx-4 top-0 pb-1 pt-0 sm:-mx-6 sm:pb-2 lg:-mx-8"
-          : "top-0 pb-2 pt-4 sm:pb-3"
+        isScrolled ? "top-0 pb-2 pt-2" : "top-0 pb-4 pt-5 sm:pt-6"
       }`}
     >
       <div
-        className={`mx-auto px-3 transition-all duration-300 sm:px-5 ${
+        className={`flex w-full items-center justify-between gap-4 px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
           isScrolled
-            ? "w-full rounded-none bg-canvas"
-            : "max-w-content rounded-[1.75rem] border border-border/70 bg-canvas/88 py-3 backdrop-blur-xl sm:py-4"
+            ? "py-3"
+            : "py-4"
         }`}
       >
-        <nav
-          className={`grid w-full grid-cols-5 text-center text-sm text-muted transition-all duration-300 sm:text-base ${
-            isScrolled ? "gap-1" : "gap-2"
-          }`}
-        >
+        <Link href="/" className="min-w-0">
+          <div className="eyebrow-label">Jingxuan Lyu</div>
+          <p className="mt-1 truncate text-sm text-muted">
+            Systems, research, and visual thinking
+          </p>
+        </Link>
+        <nav className="flex flex-wrap justify-end gap-1 text-sm sm:text-[0.95rem]">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-2 font-semibold tracking-[0.01em] text-ink transition-all duration-300 hover:bg-accent hover:text-ink sm:px-3 ${
-                isScrolled ? "py-2" : "py-3"
+              className={`rounded-full px-3 py-2 font-medium tracking-[0.02em] transition-all duration-300 sm:px-4 ${
+                pathname === link.href
+                  ? "bg-[rgba(190,170,128,0.2)] text-ink"
+                  : "text-muted hover:bg-[rgba(255,255,255,0.6)] hover:text-ink"
               }`}
             >
               {link.label}
