@@ -1,11 +1,11 @@
 import Link from "next/link";
-import type { Project } from "@/data/portfolio";
+import type { PortfolioEntry } from "@/data/portfolio";
 
 export function ProjectCard({
   project,
   expanded = false,
 }: {
-  project: Project;
+  project: PortfolioEntry;
   expanded?: boolean;
 }) {
   return (

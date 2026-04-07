@@ -1,171 +1,222 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { ProjectShowcase } from "@/components/project-showcase";
-import { contactLinks, featuredProjects } from "@/data/portfolio";
+import {
+  contactLinks,
+  education,
+  projects,
+  research,
+  resumeDocument,
+} from "@/data/portfolio";
+
+const primaryEmail = contactLinks.find((link) =>
+  link.label.toLowerCase().includes("berkeley"),
+);
+
+const socialLinks = contactLinks.filter(
+  (link) => !link.label.toLowerCase().includes("email"),
+);
 
 export default function HomePage() {
-  const primaryContacts = contactLinks.filter((link) =>
-    ["LinkedIn", "GitHub", "Berkeley Email"].includes(link.label),
-  );
-
-  const entryCards = [
-    {
-      eyebrow: "About",
-      title: "Background",
-      body: "Study, perspective, direction.",
-      href: "/about",
-      cta: "Open About",
-    },
-    {
-      eyebrow: "Projects",
-      title: "Selected Works",
-      body: "Research, systems, experiments.",
-      href: "/projects",
-      cta: "Open Projects",
-    },
-    {
-      eyebrow: "Resume",
-      title: "Experience",
-      body: "Education, work, involvement.",
-      href: "/resume",
-      cta: "Open Resume",
-    },
-  ];
-
   return (
-    <Container className="relative max-w-[92rem] space-y-16 py-8 sm:space-y-20 sm:py-10 xl:max-w-[96rem]">
-      <section className="grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_minmax(22rem,0.75fr)]">
-        <article className="relative overflow-hidden rounded-[2.9rem] border border-[rgba(120,128,138,0.14)] px-6 py-10 shadow-card sm:px-10 sm:py-14 lg:px-12 lg:py-16">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(120deg, rgba(255,252,247,0.88) 0%, rgba(250,245,236,0.78) 52%, rgba(246,240,231,0.64) 100%), radial-gradient(circle at top left, rgba(190,170,128,0.18), transparent 22rem), radial-gradient(circle at 82% 18%, rgba(158,177,191,0.18), transparent 18rem)",
-            }}
-          />
-          <div className="relative z-10">
-            <div className="eyebrow-label">Jingxuan Lyu</div>
-            <div className="section-rule mt-5 max-w-56" />
-            <h1 className="balance mt-8 max-w-5xl font-serif text-[3.9rem] leading-[0.88] tracking-tightest text-ink sm:text-[5.2rem] lg:text-[6.3rem]">
-              Systems, research, visual thinking.
-            </h1>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              UC Berkeley. Computer Science and Data Science.
+    <Container className="max-w-[72rem] py-8 sm:py-10">
+      <div className="academic-layout">
+        <aside className="academic-sidebar">
+          <div className="academic-profile-card">
+            <div className="academic-avatar" aria-hidden="true">
+              <Image
+                src="/profile-photo-v2.jpg"
+                alt="Portrait of Jingxuan Lyu"
+                fill
+                priority
+                className="object-cover object-center scale-[1.08]"
+                sizes="120px"
+              />
+            </div>
+            <h1 className="academic-name">Jingxuan Lyu</h1>
+            <p className="academic-role">
+              UC Berkeley student studying Data Science with strong interests in
+              AI, machine learning, and data processing.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/projects"
-                className="rounded-full border border-[rgba(190,170,128,0.42)] bg-[rgba(190,170,128,0.14)] px-6 py-3 text-sm font-semibold text-ink hover:bg-[rgba(190,170,128,0.2)]"
-              >
-                View Projects
+
+            <div className="academic-meta-list">
+              <p>UC Berkeley</p>
+              <p>AI, machine learning, and data-driven systems</p>
+              <p>Seeking AI and data-related opportunities</p>
+            </div>
+
+            <div className="academic-link-list">
+              {primaryEmail ? (
+                <Link href={primaryEmail.href} className="academic-link-item">
+                  Email
+                </Link>
+              ) : null}
+              <Link href={resumeDocument.href} className="academic-link-item">
+                Resume
               </Link>
-              <Link
-                href="/resume"
-                className="rounded-full border border-[rgba(120,128,138,0.16)] px-6 py-3 text-sm font-medium text-muted hover:border-[rgba(190,170,128,0.45)] hover:text-ink"
-              >
-                View Resume
-              </Link>
+              {socialLinks.map((link) => (
+                <Link key={link.label} href={link.href} className="academic-link-item">
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
-        </article>
-
-        <aside className="grid gap-4">
-          {entryCards.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="scene-panel rounded-[2rem] px-6 py-6 sm:px-7 sm:py-7"
-            >
-              <p className="eyebrow-label">{item.eyebrow}</p>
-              <h2 className="mt-5 font-serif text-3xl leading-none text-ink">
-                {item.title}
-              </h2>
-              <p className="mt-4 text-base leading-8 text-muted">{item.body}</p>
-              <p className="mt-6 text-sm font-medium text-ink">{item.cta}</p>
-            </Link>
-          ))}
         </aside>
-      </section>
 
-      <section className="space-y-8">
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(22rem,0.45fr)] xl:items-end">
-          <div>
-            <div className="eyebrow-label">Selected Works</div>
-            <div className="section-rule mt-5 max-w-48" />
-            <h2 className="mt-7 font-serif text-4xl leading-none tracking-tightest text-ink sm:text-5xl">
-              A short project selection.
-            </h2>
-          </div>
-          <div className="flex xl:justify-end">
-            <Link
-              href="/projects"
-              className="w-fit rounded-full border border-[rgba(120,128,138,0.16)] px-5 py-3 text-sm font-medium text-muted hover:border-[rgba(190,170,128,0.45)] hover:text-ink"
-            >
-              Full Archive
-            </Link>
-          </div>
-        </div>
-        <div className="space-y-8">
-          {featuredProjects.slice(0, 2).map((project, index) => (
-            <ProjectShowcase
-              key={project.name}
-              project={project}
-              index={index}
-            />
-          ))}
-        </div>
-      </section>
+        <div className="academic-main">
+          <section id="about" className="academic-section">
+            <h2>About Me</h2>
+            <p>
+              Hello! I am a student at UC Berkeley studying Data Science, with a
+              strong interest in AI, machine learning, and data processing.
+            </p>
+            <p>
+              I enjoy working with data to solve problems, uncover insights,
+              and build practical applications. I am particularly interested in
+              how intelligent systems can be developed and applied to real-world
+              tasks.
+            </p>
+            <p>
+              My recent work has included machine learning research on
+              large-scale fraud detection, where I compared multiple
+              approaches, including classical models, ensemble methods, and
+              neural networks, through preprocessing, feature selection, and
+              model evaluation. I am also interested in research and technical
+              work that connects computation with human impact, including
+              accessibility and education.
+            </p>
+            <p>
+              Recently, I have been exploring personal projects and technical
+              tools related to data workflows and modern infrastructure. These
+              experiences have deepened my interest in applied AI, data-driven
+              technology, and research-informed problem solving.
+            </p>
+            <p>
+              I am currently seeking opportunities in AI and data-related
+              fields where I can continue learning and contribute to impactful
+              work. The quickest way to reach me is by email at{" "}
+              {primaryEmail ? (
+                <Link href={primaryEmail.href} className="academic-inline-link">
+                  {primaryEmail.value}
+                </Link>
+              ) : (
+                "jingxuan.lyu@berkeley.edu"
+              )}
+              .
+            </p>
+          </section>
 
-      <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(22rem,0.75fr)]">
-        <article className="scene-panel rounded-[2.4rem] px-6 py-7 sm:px-8 sm:py-8">
-          <div className="eyebrow-label">Sections</div>
-          <div className="section-rule mt-5 max-w-40" />
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
-            <Link
-              href="/about"
-              className="rounded-[1.6rem] border border-[rgba(120,128,138,0.14)] bg-[rgba(255,255,255,0.56)] p-5"
-            >
-              <p className="eyebrow-label">About</p>
-              <p className="mt-4 text-lg text-ink">Background</p>
-            </Link>
-            <Link
-              href="/projects"
-              className="rounded-[1.6rem] border border-[rgba(120,128,138,0.14)] bg-[rgba(255,255,255,0.56)] p-5"
-            >
-              <p className="eyebrow-label">Projects</p>
-              <p className="mt-4 text-lg text-ink">Works</p>
-            </Link>
-            <Link
-              href="/resume"
-              className="rounded-[1.6rem] border border-[rgba(120,128,138,0.14)] bg-[rgba(255,255,255,0.56)] p-5"
-            >
-              <p className="eyebrow-label">Resume</p>
-              <p className="mt-4 text-lg text-ink">Experience</p>
-            </Link>
-          </div>
-        </article>
+          <section id="education" className="academic-section">
+            <div className="academic-section-heading">
+              <h2>Education</h2>
+            </div>
+            <div className="academic-entry-list">
+              {education.map((item) => (
+                <article key={`${item.title}-${item.period}`} className="academic-entry">
+                  <div className="academic-entry-top">
+                    <h3>{item.title}</h3>
+                    <span>{item.period}</span>
+                  </div>
+                  <p className="academic-entry-subtitle">{item.subtitle}</p>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-        <article className="rounded-[2.4rem] border border-[rgba(190,170,128,0.24)] bg-[linear-gradient(180deg,rgba(190,170,128,0.16),rgba(255,251,244,0.72))] px-6 py-7 sm:px-8 sm:py-8">
-          <p className="eyebrow-label text-[rgba(95,104,116,0.82)]">
-            Contact
-          </p>
-          <h2 className="mt-6 max-w-md font-serif text-4xl leading-none text-ink sm:text-5xl">
-            For research, internships, and collaboration.
-          </h2>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {primaryContacts.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="rounded-full border border-[rgba(120,128,138,0.16)] px-5 py-3 text-sm font-medium text-ink hover:bg-[rgba(255,255,255,0.56)]"
-              >
-                {link.label}
+          <section id="projects" className="academic-section">
+            <div className="academic-section-heading">
+              <h2>Projects</h2>
+              <p>Selected work across accessibility, community, and education.</p>
+            </div>
+            <div className="academic-entry-list">
+              {projects.map((project) => (
+                <article key={project.slug} className="academic-entry">
+                  <div className="academic-entry-top">
+                    <h3>{project.name}</h3>
+                    <span>{project.year}</span>
+                  </div>
+                  <p className="academic-entry-subtitle">{project.category}</p>
+                  <p>{project.description}</p>
+                  <div className="academic-tag-row">
+                    {project.stack.slice(0, 4).map((item) => (
+                      <span key={item} className="academic-tag">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="academic-actions">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="academic-inline-link"
+                    >
+                      View project page
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="research" className="academic-section">
+            <div className="academic-section-heading">
+              <h2>Research</h2>
+              <p>Research items remain separate from projects and keep their own pages.</p>
+            </div>
+            <div className="academic-entry-list">
+              {research.map((entry) => (
+                <article key={entry.slug} className="academic-entry">
+                  <div className="academic-entry-top">
+                    <h3>{entry.name}</h3>
+                    <span>{entry.year}</span>
+                  </div>
+                  <p className="academic-entry-subtitle">{entry.category}</p>
+                  <p>{entry.description}</p>
+                  <div className="academic-tag-row">
+                    {entry.stack.slice(0, 4).map((item) => (
+                      <span key={item} className="academic-tag">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="academic-actions">
+                    <Link
+                      href={`/research/${entry.slug}`}
+                      className="academic-inline-link"
+                    >
+                      View research page
+                    </Link>
+                    {entry.paper ? (
+                      <Link href={entry.paper.href} className="academic-inline-link">
+                        {entry.paper.label}
+                      </Link>
+                    ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="academic-section academic-highlight-box">
+            <h2>Resume and Contact</h2>
+            <p>
+              The full resume and contact information are collected on a single
+              page for easier sharing.
+            </p>
+            <div className="academic-actions">
+              <Link href={resumeDocument.href} className="academic-inline-link">
+                {resumeDocument.label}
               </Link>
-            ))}
-          </div>
-        </article>
-      </section>
+              <Link href="/resume#contact" className="academic-inline-link">
+                Contact
+              </Link>
+              <Link href="/resume" className="academic-inline-link">
+                Open resume page
+              </Link>
+            </div>
+          </section>
+        </div>
+      </div>
     </Container>
   );
 }

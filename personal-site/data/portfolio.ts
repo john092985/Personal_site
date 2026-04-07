@@ -1,4 +1,4 @@
-export type Project = {
+export type PortfolioEntry = {
   slug: string;
   name: string;
   category: string;
@@ -8,6 +8,10 @@ export type Project = {
   stack: string[];
   highlights: string[];
   links: Array<{ label: string; href: string }>;
+  paper?: {
+    label: string;
+    href: string;
+  };
   visual: {
     label: string;
     code: string;
@@ -28,7 +32,12 @@ export type ResumeItem = {
   titleAlign?: "left" | "right";
 };
 
-export const featuredProjects: Project[] = [
+export const resumeDocument = {
+  label: "Download Resume",
+  href: "/Jingxuan-Lyu-Resume.pdf",
+};
+
+export const research: PortfolioEntry[] = [
   {
     slug: "predicting-fraudulent-transactions",
     name: "Predicting Fraudulent Transactions: A Comparative Study",
@@ -37,7 +46,7 @@ export const featuredProjects: Project[] = [
     description:
       "A fraud-detection study comparing classical ML models, ensemble methods, and a CNN on large-scale transaction data.",
     longDescription:
-      "This project compared several machine learning approaches for fraudulent transaction prediction on a dataset with more than 6.3 million rows. The work included preprocessing, feature selection, and evaluation across logistic regression, random forest, XGBoost, stacking, and CNN models.",
+      "This research compared several machine learning approaches for fraudulent transaction prediction on a dataset with more than 6.3 million rows. The work included preprocessing, feature selection, and evaluation across logistic regression, random forest, XGBoost, stacking, and CNN models, with an emphasis on comparing tradeoffs rather than treating any single model as universally best.",
     stack: ["Python", "pandas", "scikit-learn", "TensorFlow", "XGBoost"],
     highlights: [
       "Compared logistic regression, decision tree, random forest, XGBoost, stacking, and CNN approaches on the same fraud-detection task.",
@@ -45,43 +54,19 @@ export const featuredProjects: Project[] = [
       "Evaluated models with accuracy, precision, recall, and confusion matrices to make the comparison more rigorous and interpretable.",
     ],
     links: [
-      { label: "View Project", href: "/projects/predicting-fraudulent-transactions" },
-      { label: "Download PDF", href: "/predicting-fraudulent-transactions-paper.pdf" },
-      { label: "Contact", href: "/contact" },
+      { label: "View Research", href: "/research/predicting-fraudulent-transactions" },
+      { label: "Contact", href: "/resume#contact" },
     ],
+    paper: {
+      label: "Download Paper",
+      href: "/predicting-fraudulent-transactions-paper.pdf",
+    },
     visual: {
       label: "Model Atlas",
-      code: "01",
+      code: "R1",
       accent: "#C7A76A",
       surface: "#F5EBDD",
       grid: "#D8C3A2",
-    },
-  },
-  {
-    slug: "braille-calculator-initiative",
-    name: "Braille Calculator Initiative",
-    category: "Assistive Technology",
-    year: "2026",
-    description:
-      "An accessibility-focused calculator project designed to help visually impaired students perform two-digit multiplication more efficiently.",
-    longDescription:
-      "Working with a program supported by the Chinese Academy of Sciences, I helped design and refine a Braille-based calculator for students at the Beijing School for the Blind. The work combined interface simplification, software transmission improvements, testing with real users, and a broader lesson about how educational technology should support actual learning rather than only technical convenience.",
-    stack: ["Accessibility Design", "Prototyping", "Software Testing", "User Feedback"],
-    highlights: [
-      "Designed a calculator workflow to simplify two-digit multiplication for visually impaired students.",
-      "Improved software-side data transmission and iterated through user testing in real classroom settings.",
-      "Learned to think beyond the device itself and consider how tools fit into broader educational access.",
-    ],
-    links: [
-      { label: "View Project", href: "/projects/braille-calculator-initiative" },
-      { label: "Contact", href: "/contact" },
-    ],
-    visual: {
-      label: "Access Field",
-      code: "02",
-      accent: "#7E9AAB",
-      surface: "#EAF1F4",
-      grid: "#B7CAD4",
     },
   },
   {
@@ -100,15 +85,50 @@ export const featuredProjects: Project[] = [
       "Strengthened my ability to connect theory, implementation, and critical evaluation in research work.",
     ],
     links: [
-      { label: "View Project", href: "/projects/credit-risk-modeling-research" },
-      { label: "Get In Touch", href: "/contact" },
+      { label: "View Research", href: "/research/credit-risk-modeling-research" },
+      { label: "Contact", href: "/resume#contact" },
     ],
     visual: {
       label: "Risk Signals",
-      code: "03",
+      code: "R2",
       accent: "#9A8F7B",
       surface: "#EFE8DE",
       grid: "#C9BCA8",
+    },
+  },
+];
+
+export const projects: PortfolioEntry[] = [
+  {
+    slug: "braille-calculator-initiative",
+    name: "Braille Calculator Initiative",
+    category: "Assistive Technology",
+    year: "2026",
+    description:
+      "An accessibility-focused calculator project designed to help visually impaired students perform two-digit multiplication more efficiently.",
+    longDescription:
+      "Working with a program supported by the Chinese Academy of Sciences, I helped design and refine a Braille-based calculator for students at the Beijing School for the Blind. The work combined interface simplification, software transmission improvements, testing with real users, and a broader lesson about how educational technology should support actual learning rather than only technical convenience.",
+    stack: [
+      "Accessibility Design",
+      "Prototyping",
+      "Software Testing",
+      "User Feedback",
+    ],
+    highlights: [
+      "Designed a calculator workflow to simplify two-digit multiplication for visually impaired students.",
+      "Improved software-side data transmission and iterated through user testing in real classroom settings.",
+      "Learned to think beyond the device itself and consider how tools fit into broader educational access.",
+    ],
+    links: [
+      { label: "View Project", href: "/projects/braille-calculator-initiative" },
+      { label: "Contact", href: "/resume#contact" },
+    ],
+    visual: {
+      label: "Access Field",
+      code: "P1",
+      accent: "#7E9AAB",
+      surface: "#EAF1F4",
+      grid: "#B7CAD4",
     },
   },
   {
@@ -128,30 +148,31 @@ export const featuredProjects: Project[] = [
     ],
     links: [
       { label: "View Project", href: "/projects/science-arts-and-philosophy-club" },
-      { label: "Contact", href: "/contact" },
+      { label: "Contact", href: "/resume#contact" },
     ],
     visual: {
       label: "Public Forum",
-      code: "04",
+      code: "P2",
       accent: "#8D7B93",
       surface: "#EEE8F2",
       grid: "#C7BBCE",
     },
   },
-];
-
-export const allProjects: Project[] = [
-  ...featuredProjects,
   {
     slug: "chemistry-thinks-big",
     name: "Chemistry Thinks Big",
-    category: "Education & Outreach",
+    category: "Education and Outreach",
     year: "2024",
     description:
       "A hands-on chemistry teaching initiative developed during volunteer instruction in Xichuan.",
     longDescription:
       "While teaching in Xichuan, I adapted chemistry lessons to work with limited equipment by treating everyday environments as laboratories. Students explored pH testing, filtration, catalysts, and material behavior using household and local materials. We documented the work in a project book called 'Chemistry Thinks Big,' which captured the broader lesson that creativity and resilience can expand what education looks like.",
-    stack: ["Teaching", "Curriculum Design", "Volunteer Work", "Scientific Communication"],
+    stack: [
+      "Teaching",
+      "Curriculum Design",
+      "Volunteer Work",
+      "Scientific Communication",
+    ],
     highlights: [
       "Designed chemistry activities using household and local materials when formal lab resources were limited.",
       "Introduced students to pH testing, filtration, catalysts, and material behavior through hands-on teaching.",
@@ -159,11 +180,11 @@ export const allProjects: Project[] = [
     ],
     links: [
       { label: "View Project", href: "/projects/chemistry-thinks-big" },
-      { label: "Discuss", href: "/contact" },
+      { label: "Contact", href: "/resume#contact" },
     ],
     visual: {
       label: "Field Lab",
-      code: "05",
+      code: "P3",
       accent: "#7F9274",
       surface: "#EDF2E8",
       grid: "#C0CCB7",
@@ -172,7 +193,11 @@ export const allProjects: Project[] = [
 ];
 
 export function getProjectBySlug(slug: string) {
-  return allProjects.find((project) => project.slug === slug);
+  return projects.find((project) => project.slug === slug);
+}
+
+export function getResearchBySlug(slug: string) {
+  return research.find((entry) => entry.slug === slug);
 }
 
 export const skills = [
@@ -224,41 +249,6 @@ export const contactLinks = [
     label: "GitHub",
     value: "github.com/john092985",
     href: "https://github.com/john092985",
-  },
-  {
-    label: "Resume Request",
-    value: "Available upon request",
-    href: "mailto:jingxuan.lyu@berkeley.edu?subject=Resume%20Request",
-  },
-];
-
-export const profileHighlights = [
-  {
-    title: "Technical Direction",
-    body: "Interested in computer science, data science, and machine learning, especially when technical work connects to clear human impact.",
-  },
-  {
-    title: "Research and Data Experience",
-    body: "Experience spans machine learning research, credit risk modeling, and data analysis through academic programs and internship work.",
-  },
-  {
-    title: "Interdisciplinary Perspective",
-    body: "I often connect technology with design, ethics, education, and the arts, which shapes how I think about both products and systems.",
-  },
-];
-
-export const values = [
-  {
-    title: "Usefulness",
-    body: "I care most about whether technical work genuinely helps people, especially in education, accessibility, and practical decision-making.",
-  },
-  {
-    title: "Rigor",
-    body: "Whether in competitions, research, or coursework, I value disciplined learning, careful analysis, and solutions that hold up under scrutiny.",
-  },
-  {
-    title: "Creativity",
-    body: "Art, photography, and design influence how I approach technical work: I value clarity, visual judgment, and original thinking.",
   },
 ];
 

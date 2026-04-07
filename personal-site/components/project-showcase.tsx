@@ -1,12 +1,12 @@
 import Link from "next/link";
-import type { Project } from "@/data/portfolio";
+import type { PortfolioEntry } from "@/data/portfolio";
 
 export function ProjectShowcase({
   project,
   index,
   expanded = false,
 }: {
-  project: Project;
+  project: PortfolioEntry;
   index: number;
   expanded?: boolean;
 }) {
