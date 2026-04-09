@@ -54,6 +54,19 @@ export default function HomePage() {
                 </Link>
               ))}
             </div>
+
+            <Link href="/art" className="academic-feature-link">
+              <span className="academic-feature-link-kicker">New Exhibition</span>
+              <span className="academic-feature-link-row">
+                <span className="academic-feature-link-anchor">Art Portfolio</span>
+                <span className="academic-feature-link-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+              <span className="academic-feature-link-copy">
+                A museum-inspired collection of paintings and photography.
+              </span>
+            </Link>
           </div>
         </aside>
 
@@ -119,43 +132,6 @@ export default function HomePage() {
           </section>
 
           <section
-            id="projects"
-            className="academic-section scroll-mt-24 sm:scroll-mt-28"
-          >
-            <div className="academic-section-heading">
-              <h2>Projects</h2>
-              <p>Selected work across accessibility, community, and education.</p>
-            </div>
-            <div className="academic-entry-list">
-              {projects.map((project) => (
-                <article key={project.slug} className="academic-entry">
-                  <div className="academic-entry-top">
-                    <h3>{project.name}</h3>
-                    <span>{project.year}</span>
-                  </div>
-                  <p className="academic-entry-subtitle">{project.category}</p>
-                  <p>{project.description}</p>
-                  <div className="academic-tag-row">
-                    {project.stack.slice(0, 4).map((item) => (
-                      <span key={item} className="academic-tag">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="academic-actions">
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="academic-inline-link"
-                    >
-                      View project page
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section
             id="research"
             className="academic-section scroll-mt-24 sm:scroll-mt-28"
           >
@@ -191,6 +167,43 @@ export default function HomePage() {
                         {entry.paper.label}
                       </Link>
                     ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section
+            id="projects"
+            className="academic-section scroll-mt-24 sm:scroll-mt-28"
+          >
+            <div className="academic-section-heading">
+              <h2>Projects</h2>
+              <p>Selected work across accessibility, community, and education.</p>
+            </div>
+            <div className="academic-entry-list">
+              {projects.map((project) => (
+                <article key={project.slug} className="academic-entry">
+                  <div className="academic-entry-top">
+                    <h3>{project.name}</h3>
+                    <span>{project.year}</span>
+                  </div>
+                  <p className="academic-entry-subtitle">{project.category}</p>
+                  <p>{project.description}</p>
+                  <div className="academic-tag-row">
+                    {project.stack.slice(0, 4).map((item) => (
+                      <span key={item} className="academic-tag">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="academic-actions">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="academic-inline-link"
+                    >
+                      View project page
+                    </Link>
                   </div>
                 </article>
               ))}

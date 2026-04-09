@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { contactLinks, resumeDocument } from "@/data/portfolio";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/art")) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-[rgba(31,40,51,0.08)] py-8">
       <div className="mx-auto flex max-w-[78rem] flex-col gap-3 px-4 text-sm text-muted sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">

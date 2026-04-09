@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const aboutLinks = [
-  { href: "/#projects", label: "Projects", key: "projects" },
   { href: "/#research", label: "Research", key: "research" },
+  { href: "/#projects", label: "Projects", key: "projects" },
 ] as const;
 
 export function SiteHeader() {
