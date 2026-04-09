@@ -35,15 +35,9 @@ export default function HomePage() {
             </div>
             <h1 className="academic-name">Jingxuan Lyu</h1>
             <p className="academic-role">
-              UC Berkeley student studying Data Science with strong interests in
-              AI, machine learning, and data processing.
+              Interested in AI, machine learning, and data-driven problem
+              solving.
             </p>
-
-            <div className="academic-meta-list">
-              <p>UC Berkeley</p>
-              <p>AI, machine learning, and data-driven systems</p>
-              <p>Seeking AI and data-related opportunities</p>
-            </div>
 
             <div className="academic-link-list">
               {primaryEmail ? (
@@ -124,7 +118,10 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section id="projects" className="academic-section">
+          <section
+            id="projects"
+            className="academic-section scroll-mt-24 sm:scroll-mt-28"
+          >
             <div className="academic-section-heading">
               <h2>Projects</h2>
               <p>Selected work across accessibility, community, and education.</p>
@@ -158,7 +155,10 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section id="research" className="academic-section">
+          <section
+            id="research"
+            className="academic-section scroll-mt-24 sm:scroll-mt-28"
+          >
             <div className="academic-section-heading">
               <h2>Research</h2>
               <p>Research items remain separate from projects and keep their own pages.</p>
@@ -199,10 +199,6 @@ export default function HomePage() {
 
           <section className="academic-section academic-highlight-box">
             <h2>Resume and Contact</h2>
-            <p>
-              The full resume and contact information are collected on a single
-              page for easier sharing.
-            </p>
             <div className="academic-actions">
               <Link href={resumeDocument.href} className="academic-inline-link">
                 {resumeDocument.label}

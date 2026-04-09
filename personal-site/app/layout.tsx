@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Newsreader, Source_Sans_3 } from "next/font/google";
+import { IBM_Plex_Sans, Spectral } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
-const sans = Source_Sans_3({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const serif = Newsreader({
+const serif = Spectral({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sans.variable} ${serif.variable} relative min-h-screen bg-canvas text-ink antialiased`}
+        className={`${sans.variable} ${serif.variable} relative min-h-screen text-ink antialiased`}
       >
         <div aria-hidden="true" className="site-atmosphere" />
         <div className="relative flex min-h-screen flex-col">
