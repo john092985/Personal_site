@@ -43,13 +43,17 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-20 border-b border-[rgba(31,40,51,0.08)] bg-[rgba(255,255,255,0.94)] backdrop-blur-sm">
-      <div className="mx-auto flex w-full max-w-[78rem] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="min-w-0 text-sm font-semibold text-ink">
+      <div className="mx-auto flex w-full max-w-[78rem] flex-col items-start gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <Link
+          href="/"
+          className="whitespace-nowrap text-sm font-semibold text-ink"
+        >
           Jingxuan Lyu
         </Link>
-        <nav className="flex flex-wrap items-center justify-end gap-2 text-sm">
+
+        <nav className="flex w-full flex-col items-stretch gap-2 text-sm md:w-auto md:flex-row md:flex-wrap md:items-center md:justify-end">
           <div
-            className={`flex items-center gap-1 rounded-full border px-1.5 py-1 ${
+            className={`flex w-full items-center justify-center gap-1 rounded-full border px-1.5 py-1 md:w-auto md:justify-start ${
               aboutGroupActive
                 ? "border-[rgba(31,40,51,0.1)] bg-[rgba(31,40,51,0.045)]"
                 : "border-[rgba(31,40,51,0.08)] bg-[rgba(31,40,51,0.02)]"
@@ -57,7 +61,7 @@ export function SiteHeader() {
           >
             <Link
               href="/"
-              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+              className={`rounded-full px-3 py-2 text-sm font-medium transition sm:px-4 ${
                 activeSection === "about"
                   ? "bg-white text-ink shadow-[0_1px_6px_rgba(31,40,51,0.08)]"
                   : "text-ink hover:bg-[rgba(255,255,255,0.72)]"
@@ -66,7 +70,7 @@ export function SiteHeader() {
               About Me
             </Link>
             <div className="hidden h-5 w-px bg-[rgba(31,40,51,0.08)] sm:block" />
-            <div className="flex items-center gap-1 pr-1">
+            <div className="flex items-center gap-1 pr-0 sm:pr-1">
               {aboutLinks.map((link) => {
                 const active = activeSection === link.key;
 
@@ -74,7 +78,7 @@ export function SiteHeader() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition sm:text-[0.7rem] ${
+                    className={`rounded-full px-2.5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.12em] transition sm:px-3 sm:text-[0.7rem] sm:tracking-[0.14em] ${
                       active
                         ? "bg-[rgba(31,40,51,0.08)] text-ink"
                         : "text-muted hover:bg-[rgba(31,40,51,0.04)] hover:text-ink"
@@ -89,7 +93,7 @@ export function SiteHeader() {
 
           <Link
             href="/resume"
-            className={`rounded-full px-4 py-3 text-sm font-medium transition ${
+            className={`w-full rounded-full px-4 py-2.5 text-center text-sm font-medium transition md:w-auto md:py-3 ${
               activeSection === "resume"
                 ? "bg-[rgba(31,40,51,0.06)] text-ink"
                 : "text-muted hover:bg-[rgba(31,40,51,0.04)] hover:text-ink"
