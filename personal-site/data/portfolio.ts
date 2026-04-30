@@ -96,6 +96,33 @@ export const research: PortfolioEntry[] = [
       grid: "#C9BCA8",
     },
   },
+  {
+    slug: "campus-weather-rainfall-forecasting",
+    name: "Campus Weather Data Analysis for Short-Term Rainfall Forecasting",
+    category: "Time-Series Forecasting Research",
+    year: "2025",
+    description:
+      "A weather-forecasting study using high-frequency campus sensor data to support short-term rainfall prediction.",
+    longDescription:
+      "This project analyzed more than seven months of multivariate campus weather data collected at five-minute intervals, including temperature, humidity, wind, and rainfall signals. The work focused on preparing the dataset for time-series modeling through missing-data handling, feature transformation, and normalization, then supporting a CNN-based rainfall forecasting pipeline by organizing structured inputs for model training and evaluation.",
+    stack: ["Python", "Time-Series Analysis", "Data Preprocessing", "CNN"],
+    highlights: [
+      "Analyzed more than seven months of multivariate weather data collected at five-minute intervals, including temperature, humidity, wind, and rainfall.",
+      "Performed preprocessing work including missing-data handling, feature transformation, and normalization for time-series modeling.",
+      "Supported a CNN-based rainfall forecasting pipeline by preparing and analyzing structured input data for model training.",
+    ],
+    links: [
+      { label: "View Research", href: "/research/campus-weather-rainfall-forecasting" },
+      { label: "Contact", href: "/resume#contact" },
+    ],
+    visual: {
+      label: "Rainfall Signals",
+      code: "R3",
+      accent: "#5A8FB3",
+      surface: "#EAF3F8",
+      grid: "#BCD2E0",
+    },
+  },
 ];
 
 export const projects: PortfolioEntry[] = [

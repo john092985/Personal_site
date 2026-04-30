@@ -48,6 +48,9 @@ export default function HomePage() {
               <Link href={resumeDocument.href} className="academic-link-item">
                 Resume
               </Link>
+              <Link href="/chat" className="academic-link-item">
+                Chat with Me
+              </Link>
               {socialLinks.map((link) => (
                 <Link key={link.label} href={link.href} className="academic-link-item">
                   {link.label}
@@ -213,6 +216,9 @@ export default function HomePage() {
           <section className="academic-section academic-highlight-box">
             <h2>Resume and Contact</h2>
             <div className="academic-actions">
+              <Link href="/chat" className="academic-inline-link">
+                Chat with Me
+              </Link>
               <Link href={resumeDocument.href} className="academic-inline-link">
                 {resumeDocument.label}
               </Link>

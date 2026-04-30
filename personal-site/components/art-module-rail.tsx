@@ -54,9 +54,11 @@ export function ArtModuleRail({
 
     const html = document.documentElement;
     const body = document.body;
+    const setPageLock = (shouldLock: boolean) => {
+      html.classList.toggle("art-page-lock", shouldLock);
+      body.classList.toggle("art-page-lock", shouldLock);
+    };
 
-    html.classList.add("art-page-lock");
-    body.classList.add("art-page-lock");
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     viewport.scrollLeft = 0;
 
@@ -103,17 +105,21 @@ export function ArtModuleRail({
       scrollByDelta(dominantDelta * 0.34);
     };
 
-    updateScrollState();
+    const handleResize = () => {
+      setPageLock(window.innerWidth >= 960);
+      updateScrollState();
+    };
+
+    handleResize();
     viewport.addEventListener("scroll", updateScrollState, { passive: true });
     window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("resize", updateScrollState);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      html.classList.remove("art-page-lock");
-      body.classList.remove("art-page-lock");
+      setPageLock(false);
       viewport.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("resize", updateScrollState);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const aboutLinks = [
   { href: "/#research", label: "Research", key: "research" },
@@ -12,6 +12,7 @@ const aboutLinks = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [hash, setHash] = useState("");
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const updateHash = () => {
@@ -26,8 +27,34 @@ export function SiteHeader() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    const header = headerRef.current;
+
+    if (!header) {
+      return;
+    }
+
+    const root = document.documentElement;
+    const updateHeaderHeight = () => {
+      root.style.setProperty("--site-header-height", `${header.offsetHeight}px`);
+    };
+
+    updateHeaderHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeaderHeight);
+    resizeObserver.observe(header);
+    window.addEventListener("resize", updateHeaderHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
+
   const activeSection =
-    pathname.startsWith("/projects") || (pathname === "/" && hash === "#projects")
+    pathname === "/chat"
+      ? "chat"
+      : pathname.startsWith("/projects") || (pathname === "/" && hash === "#projects")
       ? "projects"
       : pathname.startsWith("/research") || (pathname === "/" && hash === "#research")
       ? "research"
@@ -42,7 +69,10 @@ export function SiteHeader() {
     activeSection === "research";
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[rgba(31,40,51,0.08)] bg-[rgba(255,255,255,0.94)] backdrop-blur-sm">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-20 border-b border-[rgba(31,40,51,0.08)] bg-[rgba(255,255,255,0.94)] backdrop-blur-sm"
+    >
       <div className="mx-auto flex w-full max-w-[78rem] flex-col items-start gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <Link
           href="/"
@@ -90,6 +120,17 @@ export function SiteHeader() {
               })}
             </div>
           </div>
+
+          <Link
+            href="/chat"
+            className={`w-full rounded-full px-4 py-2.5 text-center text-sm font-medium transition md:w-auto md:py-3 ${
+              activeSection === "chat"
+                ? "bg-[rgba(31,40,51,0.06)] text-ink"
+                : "text-muted hover:bg-[rgba(31,40,51,0.04)] hover:text-ink"
+            }`}
+          >
+            Chat
+          </Link>
 
           <Link
             href="/resume"

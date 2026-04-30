@@ -4,6 +4,7 @@
 
 :root {
   color-scheme: light;
+  --site-header-height: 5.5rem;
 }
 
 html {
@@ -437,7 +438,9 @@ a {
 }
 
 .art-page-shell {
-  min-height: calc(100vh - 5.5rem);
+  min-height: calc(100vh - var(--site-header-height));
+  min-height: calc(100svh - var(--site-header-height));
+  min-height: calc(100dvh - var(--site-header-height));
   background:
     radial-gradient(circle at top left, rgba(255, 245, 190, 0.7), transparent 28rem),
     linear-gradient(180deg, #f2cb45 0%, #efc841 46%, #f3d45c 100%);
@@ -447,7 +450,7 @@ a {
 
 .art-hero-panel {
   width: 100%;
-  padding: 2rem 1rem 3.5rem;
+  padding: 2rem 1rem max(3.5rem, calc(env(safe-area-inset-bottom) + 1.8rem));
 }
 
 .art-topbar {
@@ -498,7 +501,7 @@ a {
 
 .art-overview-viewport {
   overflow-x: auto;
-  padding-bottom: 0.8rem;
+  padding-bottom: max(0.8rem, env(safe-area-inset-bottom));
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-x: contain;
@@ -806,6 +809,7 @@ a {
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
+  padding-bottom: env(safe-area-inset-bottom);
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -1193,23 +1197,27 @@ a {
 
   .art-feature-card {
     flex-basis: min(20rem, 78vw);
-    min-height: 52vh;
+    min-height: min(28rem, 52svh);
+    min-height: min(28rem, 52dvh);
   }
 
   .art-feature-card--story {
     flex-basis: min(26rem, 88vw);
-    min-height: 52vh;
+    min-height: min(28rem, 52svh);
+    min-height: min(28rem, 52dvh);
   }
 
   .art-outro-slide {
     flex-basis: min(16rem, 72vw);
-    min-height: 52vh;
-    padding: 0 0 0.5rem 0.25rem;
+    min-height: min(28rem, 52svh);
+    min-height: min(28rem, 52dvh);
+    padding: 0 0 max(0.5rem, env(safe-area-inset-bottom)) 0.25rem;
   }
 
   .art-track-divider {
     width: 2rem;
-    min-height: 52vh;
+    min-height: min(28rem, 52svh);
+    min-height: min(28rem, 52dvh);
   }
 
   .art-feature-copy h2 {
