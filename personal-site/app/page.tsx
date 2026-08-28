@@ -81,8 +81,8 @@ export default function HomePage() {
             <h2>About Me</h2>
             <p>
               Hello! I am a student at UC Berkeley studying Data Science, with a
-              3.89 GPA and a strong interest in applied AI, machine learning,
-              data systems, and software development.
+              strong interest in applied AI, machine learning, data systems,
+              and software development.
             </p>
             <p>
               I enjoy working with data to solve problems, uncover insights,

@@ -287,7 +287,7 @@ export const contactLinks = [
 export const education: ResumeItem[] = [
   {
     title: "University of California, Berkeley",
-    subtitle: "B.A. in Data Science | GPA: 3.89/4.0",
+    subtitle: "B.A. in Data Science",
     period: "Expected May 2029",
     body: "Relevant coursework: Data Structures (CS 61B), Discrete Mathematics and Probability Theory (CS 70), Structure and Interpretation of Computer Programs (CS 61A), and Foundations of Data Science (Data C8).",
     image: "/berkeley-campus.png",
