@@ -73,7 +73,7 @@ export function SiteHeader() {
       ref={headerRef}
       className="sticky top-0 z-20 border-b border-[rgba(31,40,51,0.08)] bg-[rgba(255,255,255,0.94)] backdrop-blur-sm"
     >
-      <div className="mx-auto flex w-full max-w-[78rem] flex-col items-start gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div className="mx-auto flex w-full max-w-[78rem] flex-col items-start gap-2.5 px-4 py-3 sm:px-6 sm:py-4 md:flex-row md:items-center md:justify-between lg:px-8">
         <Link
           href="/"
           className="whitespace-nowrap text-sm font-semibold text-ink"
@@ -81,7 +81,7 @@ export function SiteHeader() {
           Jingxuan Lyu
         </Link>
 
-        <nav className="flex w-full flex-col items-stretch gap-2 text-sm md:w-auto md:flex-row md:flex-wrap md:items-center md:justify-end">
+        <nav className="flex w-full flex-row flex-wrap items-center gap-2 text-sm md:w-auto md:flex-nowrap md:justify-end">
           <div
             className={`flex w-full items-center justify-center gap-1 rounded-full border px-1.5 py-1 md:w-auto md:justify-start ${
               aboutGroupActive
@@ -123,7 +123,7 @@ export function SiteHeader() {
 
           <Link
             href="/chat"
-            className={`w-full rounded-full px-4 py-2.5 text-center text-sm font-medium transition md:w-auto md:py-3 ${
+            className={`min-w-0 flex-1 rounded-full px-4 py-2 text-center text-sm font-medium transition md:w-auto md:flex-none md:py-3 ${
               activeSection === "chat"
                 ? "bg-[rgba(31,40,51,0.06)] text-ink"
                 : "text-muted hover:bg-[rgba(31,40,51,0.04)] hover:text-ink"
@@ -134,7 +134,7 @@ export function SiteHeader() {
 
           <Link
             href="/resume"
-            className={`w-full rounded-full px-4 py-2.5 text-center text-sm font-medium transition md:w-auto md:py-3 ${
+            className={`min-w-0 flex-1 rounded-full px-4 py-2 text-center text-sm font-medium transition md:w-auto md:flex-none md:py-3 ${
               activeSection === "resume"
                 ? "bg-[rgba(31,40,51,0.06)] text-ink"
                 : "text-muted hover:bg-[rgba(31,40,51,0.04)] hover:text-ink"

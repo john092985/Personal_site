@@ -298,6 +298,40 @@ a {
   text-decoration: underline;
 }
 
+@media (max-width: 639px) {
+  .academic-profile-card {
+    padding: 1.1rem;
+  }
+
+  .academic-avatar {
+    height: 6.5rem;
+    width: 6.5rem;
+  }
+
+  .academic-name {
+    margin-top: 0.85rem;
+    font-size: 1.35rem;
+  }
+
+  .academic-role {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .academic-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem 1rem;
+  }
+
+  .academic-feature-link {
+    margin-top: 1.1rem;
+  }
+
+  .academic-section {
+    padding: 1.15rem;
+  }
+}
+
 .academic-main {
   min-width: 0;
 }
