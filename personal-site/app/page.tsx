@@ -80,34 +80,13 @@ export default function HomePage() {
           <section id="about" className="academic-section">
             <h2>About Me</h2>
             <p>
-              Hello! I am a student at UC Berkeley studying Data Science, with a
-              strong interest in applied AI, machine learning, data systems,
-              and software development.
+              I am a UC Berkeley Data Science student interested in applied AI,
+              machine learning, and software development.
             </p>
             <p>
-              I enjoy working with data to solve problems, uncover insights,
-              and build practical applications. I am particularly interested in
-              how intelligent systems can be developed and applied to real-world
-              tasks.
-            </p>
-            <p>
-              Most recently, I built an AI-assisted research and mapping
-              workflow at MiraclePlus using Python, n8n, and LLM APIs. The
-              system organized 1,500 candidate profiles across 12 industries
-              and supported deduplication, scoring, human review, CRM tracking,
-              and personalized outreach.
-            </p>
-            <p>
-              My earlier experience includes developing accessible software
-              with the Chinese Academy of Sciences and analyzing customer and
-              transaction data at London Stock Exchange Group. I also build
-              projects in personal finance, fraud detection, and modern web
-              infrastructure.
-            </p>
-            <p>
-              I am currently seeking opportunities in AI and data-related
-              fields where I can continue learning and contribute to impactful
-              work. The quickest way to reach me is by email at{" "}
+              My experience spans AI-assisted research, accessible software,
+              and financial data analysis. I am seeking opportunities in AI and
+              data-related fields. Contact me at{" "}
               {primaryEmail ? (
                 <Link href={primaryEmail.href} className="academic-inline-link">
                   {primaryEmail.value}
