@@ -32,6 +32,14 @@ export type ResumeItem = {
   titleAlign?: "left" | "right";
 };
 
+export type HomepageProject = {
+  name: string;
+  category: string;
+  year: string;
+  stack: string[];
+  description: string;
+};
+
 export const resumeDocument = {
   label: "Download Resume",
   href: "/Jingxuan-Lyu-Resume.pdf?v=20260827",
@@ -228,32 +236,29 @@ export function getResearchBySlug(slug: string) {
 }
 
 export const skills = [
-  "TypeScript",
   "Python",
-  "C++",
+  "Java",
   "SQL",
-  "Machine Learning",
-  "Data Analysis",
-  "Jupyter Notebook",
+  "TypeScript",
+  "JavaScript",
+  "pandas",
+  "NumPy",
+  "scikit-learn",
+  "TensorFlow",
+  "Next.js",
+  "n8n",
+  "LLM APIs",
+  "Tool Calling",
+  "Git",
   "Azure SQL",
-  "Research Writing",
-  "Accessibility Design",
-  "Public Speaking",
-  "Photography",
-  "Graphic Design",
-  "Leadership",
+  "Cloudflare Pages",
 ];
 
 export const coursework = [
-  "Algorithms",
-  "Statistics and Data Science",
-  "Machine Learning",
-  "Artificial Intelligence",
-  "Economics of AI",
-  "Data Transmission and Reconstruction",
-  "Credit Risk Modeling",
-  "Computer Science",
-  "Applied Economics",
+  "Data Structures (CS 61B)",
+  "Discrete Mathematics and Probability Theory (CS 70)",
+  "Structure and Interpretation of Computer Programs (CS 61A)",
+  "Foundations of Data Science (Data C8)",
 ];
 
 export const contactLinks = [
@@ -282,69 +287,61 @@ export const contactLinks = [
 export const education: ResumeItem[] = [
   {
     title: "University of California, Berkeley",
-    subtitle: "B.A. in Computer Science and Data Science",
-    period: "Expected Graduation 2029",
-    body: "Studying computer science and data science with interests in machine learning, software engineering, data-driven problem solving, and thoughtful product execution.",
+    subtitle: "B.A. in Data Science | GPA: 3.89/4.0",
+    period: "Expected May 2029",
+    body: "Relevant coursework: Data Structures (CS 61B), Discrete Mathematics and Probability Theory (CS 70), Structure and Interpretation of Computer Programs (CS 61A), and Foundations of Data Science (Data C8).",
     image: "/berkeley-campus.png",
     imagePosition: "center 34%",
     imageScale: 1.08,
     titleAlign: "right",
   },
-  {
-    title: "Haidian Kaiwen Academy",
-    subtitle: "High School Diploma",
-    period: "Graduated 2025",
-    body: "Built a strong interdisciplinary foundation across computer science, mathematics, economics, research, art, and student leadership through coursework, competitions, and community initiatives.",
-    image: "/kaiwen-campus.png",
-    imagePosition: "center center",
-    imageScale: 1.14,
-  },
-  {
-    title: "University of Pennsylvania (Summer Program)",
-    subtitle: "Summer Program in Introduction to Statistics and Data Science",
-    period: "Summer Program",
-    body: "Summer study in statistics and data science, focused on quantitative reasoning and applied analysis.",
-    image: "/PennProgram.jpg",
-    imagePosition: "center center",
-    imageScale: 1.08,
-  },
-  {
-    title: "Carnegie Mellon University (Summer Program)",
-    subtitle: "Summer Program in Machine Learning and Credit Risk Modeling",
-    period: "Summer Program",
-    body: "Studied machine learning and credit risk modeling, with hands-on Python model building and evaluation.",
-    image: "/CMU.jpg",
-    imagePosition: "center 38%",
-    imageScale: 1.08,
-  },
 ];
 
 export const experience: ResumeItem[] = [
   {
-    title: "Junior Data Analyst Intern",
-    subtitle: "London Stock Exchange Group China Office",
-    period: "2024",
-    body: "Processed customer data with Python on Azure SQL systems and explored the use of AI-assisted debugging in data platform workflows.",
-    image: "/lseg-risk-intelligence-bg.png",
-    imagePosition: "78% center",
-    imageScale: 0.96,
+    title: "Industry Research & Mapping Intern",
+    subtitle: "MiraclePlus | Beijing, China",
+    period: "May 2026 - Aug 2026",
+    body: "Built an AI-assisted workflow with Python, n8n, and LLM APIs to organize 1,500 candidate profiles across 12 industries. Designed contact deduplication, candidate scoring, human approval, CRM tracking, and 300+ personalized outreach drafts with review checkpoints.",
   },
   {
-    title: "Researcher, Algorithm for Big Data",
-    subtitle: "Program led by Professor David Woodruff",
-    period: "2024",
-    body: "Studied machine learning foundations including logistic regression, CNNs, and transformers, and applied them to credit risk prediction and performance analysis.",
-    image: "/Screenshot 2026-03-17 at 14.12.00.png",
-    imagePosition: "center 62%",
-    imageScale: 1.12,
+    title: "Software Developer",
+    subtitle: "Chinese Academy of Sciences | Beijing, China",
+    period: "Jun 2024 - Jul 2025",
+    body: "Designed an accessibility-focused calculator with streamlined input logic for students with visual impairments, then iterated on the interface through user testing with students at Beijing School for the Blind.",
   },
   {
-    title: "Volunteer and Project Contributor",
-    subtitle: "Beijing School for the Blind / Chinese Academy of Sciences support program",
-    period: "2024",
-    body: "Helped design and refine a calculator for visually impaired students, tested it in real educational settings, and continued supporting math access through long-term volunteering.",
-    image: "/painting-detail-transparent.png",
-    imagePosition: "center center",
+    title: "Data Analyst Intern",
+    subtitle: "London Stock Exchange Group | Beijing, China",
+    period: "Apr 2024 - Aug 2024",
+    body: "Analyzed customer and transaction datasets with Python and Azure SQL for credit-risk and customer-risk workflows, and built reusable data-cleaning and transformation pipelines for downstream analysis.",
+  },
+];
+
+export const homepageProjects: HomepageProject[] = [
+  {
+    name: "Personal Finance Data Assistant",
+    category: "AI & Financial Data",
+    year: "2026",
+    stack: ["Python", "SQL", "LLM APIs", "Tool Calling"],
+    description:
+      "Prototyped an LLM-based assistant for analyzing 120 days of transaction history, including recurring charges, spending categories, and cash-flow patterns. Its tool-calling architecture retrieves only the relevant transaction subsets on demand.",
+  },
+  {
+    name: "Personal Portfolio Website",
+    category: "Web Engineering",
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "Cloudflare Pages", "Git"],
+    description:
+      "Built and deployed this responsive portfolio with reusable components, custom routing, a custom domain, and Git-based version control.",
+  },
+  {
+    name: "Fraud Transaction Detection",
+    category: "Machine Learning",
+    year: "2025",
+    stack: ["Python", "pandas", "scikit-learn", "TensorFlow"],
+    description:
+      "Built and compared logistic regression, random forest, and CNN models for imbalanced fraud data, using feature engineering and precision, recall, F1 score, and confusion matrices to evaluate robustness.",
   },
 ];
 

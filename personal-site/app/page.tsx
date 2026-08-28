@@ -3,10 +3,13 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import {
   contactLinks,
+  coursework,
   education,
-  projects,
+  experience,
+  homepageProjects,
   research,
   resumeDocument,
+  skills,
 } from "@/data/portfolio";
 
 const primaryEmail = contactLinks.find((link) =>
@@ -35,8 +38,8 @@ export default function HomePage() {
             </div>
             <h1 className="academic-name">Jingxuan Lyu</h1>
             <p className="academic-role">
-              Interested in AI, machine learning, and data-driven problem
-              solving.
+              UC Berkeley Data Science student building applied AI, data, and
+              software systems.
             </p>
 
             <div className="academic-link-list">
@@ -78,7 +81,8 @@ export default function HomePage() {
             <h2>About Me</h2>
             <p>
               Hello! I am a student at UC Berkeley studying Data Science, with a
-              strong interest in AI, machine learning, and data processing.
+              3.89 GPA and a strong interest in applied AI, machine learning,
+              data systems, and software development.
             </p>
             <p>
               I enjoy working with data to solve problems, uncover insights,
@@ -87,19 +91,18 @@ export default function HomePage() {
               tasks.
             </p>
             <p>
-              My recent work has included machine learning research on
-              large-scale fraud detection, where I compared multiple
-              approaches, including classical models, ensemble methods, and
-              neural networks, through preprocessing, feature selection, and
-              model evaluation. I am also interested in research and technical
-              work that connects computation with human impact, including
-              accessibility and education.
+              Most recently, I built an AI-assisted research and mapping
+              workflow at MiraclePlus using Python, n8n, and LLM APIs. The
+              system organized 1,500 candidate profiles across 12 industries
+              and supported deduplication, scoring, human review, CRM tracking,
+              and personalized outreach.
             </p>
             <p>
-              Recently, I have been exploring personal projects and technical
-              tools related to data workflows and modern infrastructure. These
-              experiences have deepened my interest in applied AI, data-driven
-              technology, and research-informed problem solving.
+              My earlier experience includes developing accessible software
+              with the Chinese Academy of Sciences and analyzing customer and
+              transaction data at London Stock Exchange Group. I also build
+              projects in personal finance, fraud detection, and modern web
+              infrastructure.
             </p>
             <p>
               I am currently seeking opportunities in AI and data-related
@@ -114,6 +117,24 @@ export default function HomePage() {
               )}
               .
             </p>
+          </section>
+
+          <section id="experience" className="academic-section">
+            <div className="academic-section-heading">
+              <h2>Experience</h2>
+            </div>
+            <div className="academic-entry-list">
+              {experience.map((item) => (
+                <article key={`${item.title}-${item.period}`} className="academic-entry">
+                  <div className="academic-entry-top">
+                    <h3>{item.title}</h3>
+                    <span>{item.period}</span>
+                  </div>
+                  <p className="academic-entry-subtitle">{item.subtitle}</p>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section id="education" className="academic-section">
@@ -182,11 +203,11 @@ export default function HomePage() {
           >
             <div className="academic-section-heading">
               <h2>Projects</h2>
-              <p>Selected work across accessibility, community, and education.</p>
+              <p>Selected work across applied AI, data, and software systems.</p>
             </div>
             <div className="academic-entry-list">
-              {projects.map((project) => (
-                <article key={project.slug} className="academic-entry">
+              {homepageProjects.map((project) => (
+                <article key={project.name} className="academic-entry">
                   <div className="academic-entry-top">
                     <h3>{project.name}</h3>
                     <span>{project.year}</span>
@@ -200,17 +221,22 @@ export default function HomePage() {
                       </span>
                     ))}
                   </div>
-                  <div className="academic-actions">
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="academic-inline-link"
-                    >
-                      View project page
-                    </Link>
-                  </div>
                 </article>
               ))}
             </div>
+          </section>
+
+          <section id="skills" className="academic-section">
+            <div className="academic-section-heading">
+              <h2>Technical Skills</h2>
+            </div>
+            <div className="academic-tag-row">
+              {skills.map((skill) => (
+                <span key={skill} className="academic-tag">{skill}</span>
+              ))}
+            </div>
+            <h3 className="mt-6 text-base font-semibold text-ink">Relevant Coursework</h3>
+            <p className="mt-3">{coursework.join(" · ")}</p>
           </section>
 
           <section className="academic-section academic-highlight-box">
