@@ -34,7 +34,7 @@ export type ResumeItem = {
 
 export const resumeDocument = {
   label: "Download Resume",
-  href: "/Jingxuan-Lyu-Resume.pdf",
+  href: "/Jingxuan-Lyu-Resume.pdf?v=20260827",
 };
 
 export const research: PortfolioEntry[] = [
