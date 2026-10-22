@@ -1365,3 +1365,5 @@ a,button{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-v
 .studio-piece-painting:hover .studio-painting-image img{transform:scale(1.15)}
 
 .studio-small-grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:700px){.studio-small-grid{grid-template-columns:1fr}}
+
+.robot-research-photo{position:relative;display:block;min-height:440px;overflow:hidden;border-radius:4px;background:#dce4da}.robot-research-photo img{object-position:60% 50%;transition:transform .4s}.robot-research-photo:hover img{transform:scale(1.025)}.featured-robot{align-items:center}@media(max-width:760px){.robot-research-photo{min-height:0;aspect-ratio:3/4;max-height:480px}}
