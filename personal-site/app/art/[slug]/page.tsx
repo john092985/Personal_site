@@ -41,7 +41,7 @@ export default async function ArtModulePage({
     notFound();
   }
 
-  const otherModules = artModules.filter((entry) => entry.slug !== artModule.slug);
+  const otherModules = artModules.filter((entry) => entry.slug !== artModule.slug && entry.slug !== "story");
 
   return (
     <div className="art-detail-page">

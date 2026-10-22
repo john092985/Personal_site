@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-
-export default function ResearchPage() {
-  redirect("/#research");
-}
+import Link from "next/link";
+import { research } from "@/data/portfolio";
+export const metadata = {title: "Research"};
+export default function ResearchPage(){return <div className="listing-page"><p className="overline">RESEARCH / FOLLOWING THE QUESTIONS</p><h1>Data, with <em>direction.</em></h1><p className="listing-intro">Explorations in machine learning, risk prediction, and time-series forecasting.</p>{research.map((item,i)=><Link className="research-row" href={`/research/${item.slug}`} key={item.slug}><span className="row-index">0{i+1}</span><div><p className="overline">{item.category}</p><h3>{item.name}</h3><p>{item.description}</p><div className="tag-list">{item.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div><span className="research-year">{item.year}</span><span>↗</span></Link>)}</div>}

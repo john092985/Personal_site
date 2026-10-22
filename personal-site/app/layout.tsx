@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     template: "%s | Jingxuan Lyu",
   },
   description:
-    "Portfolio website for Jingxuan Lyu, a UC Berkeley student studying Computer Science and Data Science.",
+    "Portfolio website for Jingxuan Lyu, a UC Berkeley student studying Data Science.",
   openGraph: {
     title: "Jingxuan Lyu",
     description:
-      "UC Berkeley student in Computer Science and Data Science building thoughtful, practical software.",
+      "UC Berkeley student in Data Science building thoughtful, practical software.",
     url: "https://jingxuanlyu.com",
     siteName: "Jingxuan Lyu",
     type: "website",

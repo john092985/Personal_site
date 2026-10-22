@@ -32,7 +32,7 @@ export const artIntroPanel = {
   kicker: "Painting and Photography",
   title: "Each work begins with a moment—the rest is interpretation.",
   body:
-    "This section should feel like one exhibition rail rather than a fixed sidebar plus separate cards. The introduction, Story, and the remaining categories now belong to the same horizontal sequence.",
+    "A collection of paintings, drawings, design explorations, and photographs. Follow the light, color, and everyday observations that connect them.",
   primaryLabel: "Enter the collection",
   primaryHref: "#featured",
   secondaryLabel: "Back to home",
@@ -46,7 +46,7 @@ export const artOutroPanel = {
   eyebrow: "Closing Note",
   title: "Select a module to move deeper into the work.",
   body:
-    "Each chapter now opens into its own page, where the collection can expand into a fuller gallery layout with more images, captions, and process notes.",
+    "Explore each collection for finished works, close-up details, and glimpses of the creative process.",
 } as const;
 
 export const artModules: readonly ArtModuleEntry[] = [
@@ -67,7 +67,7 @@ export const artModules: readonly ArtModuleEntry[] = [
     detailBody:
       "This page gathers the quieter images that feel like the narrative margin of the portfolio: motion, night light, silhouettes, and small observations. Rather than reading as one medium, it works as the chapter that frames how the rest of the portfolio is meant to be entered.",
     detailNote:
-      "The right side is arranged like a visual notebook, so later we can keep adding process stills, references, and text fragments without redesigning the page.",
+      "A visual notebook of motion, evening light, and the small details around the work.",
     accent: "#8a6a18",
     gallery: [
       {
@@ -116,7 +116,7 @@ export const artModules: readonly ArtModuleEntry[] = [
     detailBody:
       "The painting chapter now reads as a fuller body of work rather than a single study. It moves through floral compositions, a textured holiday painting, and a blue-flower piece shown both in progress and in its finished form, so the page carries both final images and process.",
     detailNote:
-      "This wall can keep growing with more canvases later, but it already has enough variation now to read like a real painting section instead of a placeholder.",
+      "Finished canvases and process photographs trace the choices behind each composition.",
     accent: "#7f6942",
     gallery: [
       {
@@ -179,7 +179,7 @@ export const artModules: readonly ArtModuleEntry[] = [
     detailBody:
       "This chapter is built around careful observation. The eye studies already show a strong interest in texture, reflected light, and anatomical contour, so the gallery is laid out almost like pinned studio sheets on the right.",
     detailNote:
-      "If you later send portraits or sculpture sketches, they can slot straight into this same grid without changing the page structure.",
+      "Studies of reflected light, anatomical contour, and the expressive possibilities of graphite.",
     accent: "#56524a",
     gallery: [
       {
@@ -221,7 +221,7 @@ export const artModules: readonly ArtModuleEntry[] = [
     detailBody:
       "The design section works best as a broader gallery because the projects move between branding, product posters, interior planning, and presentation spreads. The right side is arranged like a magazine wall so the variety still feels intentional instead of scattered.",
     detailNote:
-      "This layout is especially easy to keep growing: posters can sit beside rendered spaces, and brand marks can drop into smaller tiles without breaking the rhythm.",
+      "From identity studies to furniture concepts, these pieces explore how visual choices shape everyday experiences.",
     accent: "#175e86",
     gallery: [
       {
@@ -260,13 +260,6 @@ export const artModules: readonly ArtModuleEntry[] = [
         size: "landscape",
       },
       {
-        src: "/art/design/office-chair.png",
-        alt: "Poster for ergonomic office chair concept",
-        title: "Product Poster",
-        note: "Graphic communication focused on labels, function, and product silhouette.",
-        size: "portrait",
-      },
-      {
         src: "/art/design/cloud-table.jpg",
         alt: "Cloud-shaped desk concept rendering",
         title: "Cloud Desk Concept",
@@ -298,7 +291,7 @@ export const artModules: readonly ArtModuleEntry[] = [
     detailBody:
       "This chapter now leans more clearly into season and atmosphere: spring blossoms, winter scenes, autumn leaves, urban views, and intentional motion blur. The gallery is arranged to feel less like a neat feed and more like a wall of prints moving between stillness and movement.",
     detailNote:
-      "The right side is now sequenced more deliberately by mood, so future photographs can keep sliding into the seasonal rhythm without needing a redesign.",
+      "A sequence of seasonal observations, moving between quiet scenes and experiments with camera movement.",
     accent: "#7c5a2f",
     gallery: [
       {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { contactLinks, education, projects, research } from "@/data/portfolio";
+import { contactLinks, education, projects, research, experience, skills, resumeDocument } from "@/data/portfolio";
 
 export const runtime = "nodejs";
 
@@ -43,10 +43,13 @@ function buildProfileContext() {
 
   return [
     "Name: Jingxuan Lyu",
-    "Role: UC Berkeley student studying Computer Science and Data Science.",
-    "Interests: AI, machine learning, data analysis, research, accessibility, education, art, and thoughtful product execution.",
+    "Role: UC Berkeley student studying Data Science.",
+    "Interests: machine learning, embedded intelligence, software development, data analysis, research, accessibility, education, art, and thoughtful product execution.",
     "Education:",
     ...educationLines,
+    "Experience:",
+    ...experience.map(item => `- ${item.title}, ${item.subtitle} (${item.period}): ${item.body}`),
+    `Skills: ${skills.join(", ")}`,
     "Research:",
     ...researchLines,
     "Projects:",
@@ -71,8 +74,8 @@ Identity and voice:
 - Prefer natural language over buzzwords or exaggerated claims.
 
 What Jingxuan feels like:
-- A UC Berkeley student studying Computer Science and Data Science.
-- Genuinely interested in AI, machine learning, data analysis, and practical problem solving.
+- A UC Berkeley student studying Data Science.
+- Genuinely interested in machine learning, embedded intelligence, software development, and practical problem solving.
 - Thoughtful about human impact, especially in accessibility, education, and how technology affects people.
 - Also creative, with interests in art, photography, and interdisciplinary thinking.
 
@@ -147,7 +150,7 @@ export async function POST(request: Request) {
 
   if (latestUserMessage && isResumeRequest(latestUserMessage.content)) {
     const attachment: ChatAttachment = {
-      href: "/Jingxuan-Lyu-Resume.pdf",
+      href: resumeDocument.href,
       label: "Download Resume PDF",
       kind: "pdf",
     };

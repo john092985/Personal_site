@@ -1,62 +1,28 @@
 import Link from "next/link";
-import { Container } from "@/components/container";
 import { contactLinks, resumeDocument } from "@/data/portfolio";
 
-export const metadata = {
-  title: "Resume and Contact",
-};
+export const metadata = { title: "Resume & Contact" };
 
 export default function ResumePage() {
+  const email = contactLinks.find(link => link.label === "Berkeley Email")!;
+  const remaining = contactLinks.filter(link => link !== email);
   return (
-    <Container className="max-w-4xl space-y-6 py-12 sm:space-y-8 sm:py-16">
-      <header className="space-y-3">
-        <p className="eyebrow-label">CV / Contact</p>
-        <h1 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
-          CV and contact.
-        </h1>
-      </header>
-
-      <section className="grid gap-6">
-        <article className="scene-panel rounded-[1.75rem] px-6 py-7 sm:px-8">
-          <p className="eyebrow-label">CV</p>
-          <p className="mt-4 text-base leading-8 text-muted">
-            Download the latest PDF version here.
-          </p>
-          <div className="mt-6">
-            <Link
-              href={resumeDocument.href}
-              className="inline-flex rounded-full border border-[rgba(190,170,128,0.42)] bg-[rgba(190,170,128,0.14)] px-5 py-3 text-sm font-semibold text-ink hover:bg-[rgba(190,170,128,0.2)]"
-            >
-              {resumeDocument.label}
-            </Link>
-          </div>
-        </article>
-
-        <article
-          id="contact"
-          className="scene-panel rounded-[1.75rem] px-6 py-7 sm:px-8"
-        >
-          <p className="eyebrow-label">Links and Contact</p>
-          <div className="mt-5 space-y-4">
-            {contactLinks.map((link) => (
-              <div
-                key={link.label}
-                className="border-b border-[rgba(31,40,51,0.08)] pb-4 last:border-b-0 last:pb-0"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-muted">
-                  {link.label}
-                </p>
-                <Link
-                  href={link.href}
-                  className="mt-2 inline-block text-base leading-7 text-ink hover:underline"
-                >
-                  {link.value}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
-    </Container>
+    <div className="connect-page">
+      <div className="connect-layout">
+        <section id="contact" className="connect-details" aria-labelledby="contact-heading">
+          <header className="connect-heading">
+            <p className="overline">RESUME / CONTACT</p>
+            <h1 id="contact-heading">Let’s <em>connect.</em></h1>
+          </header>
+          <Link href={email.href} className="connect-email">{email.value}<span aria-hidden="true">↗</span></Link>
+          <div className="connect-links">{remaining.map((link,index) => <Link key={link.label} href={link.href} className="connect-link-row"><span className="connect-link-index">0{index+1}</span><div><span className="overline">{link.label}</span><p>{link.value}</p></div><span aria-hidden="true">↗</span></Link>)}</div>
+          <Link className="connect-chat" href="/chat"><span className="connect-chat-symbol" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-9l-5 4v-4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><circle cx="8" cy="11" r="1" fill="currentColor"/><circle cx="12" cy="11" r="1" fill="currentColor"/><circle cx="16" cy="11" r="1" fill="currentColor"/></svg></span><div><strong>A question about my background?</strong><p>Explore my work through AI chat.</p></div><span aria-hidden="true">↗</span></Link>
+        </section>
+        <aside className="resume-download-card" aria-labelledby="resume-card-title">
+          <div className="resume-preview" aria-hidden="true"><div className="resume-sheet"><div className="resume-sheet-name">Jingxuan Lyu</div><p>UC BERKELEY / DATA SCIENCE</p><div className="resume-sheet-rule"/><span>EDUCATION</span><i/><i className="short"/><span>EXPERIENCE</span><i/><i/><i className="short"/><span>RESEARCH</span><i/><i className="short"/></div><span className="resume-file-label">PDF DOCUMENT ↗</span></div>
+          <div className="resume-card-copy"><p className="overline">A LITTLE MORE ABOUT MY WORK</p><h2 id="resume-card-title">My resume.</h2><p>Education, experience, and research<br />in one place.</p><a href={resumeDocument.href} className="solid-button" download="Jingxuan-Lyu-Resume.pdf">Download resume <span aria-hidden="true">↓</span></a><a href={resumeDocument.href} className="resume-open-link" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a></div>
+        </aside>
+      </div>
+    </div>
   );
 }

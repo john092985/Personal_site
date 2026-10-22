@@ -42,10 +42,42 @@ export type HomepageProject = {
 
 export const resumeDocument = {
   label: "Download Resume",
-  href: "/Jingxuan-Lyu-Resume.pdf?v=20260827",
+  href: "/Jingxuan-Lyu-Resume.pdf?v=20261021",
 };
 
 export const research: PortfolioEntry[] = [
+  {
+    slug: "robot-table-tennis",
+    name: "Robot Table Tennis — Embodied Intelligence",
+    category: "Robotics · Ongoing Research",
+    year: "Sep 2026 – Present",
+    description: "Developing a perception-to-control pipeline for robot table tennis in collaboration with Dvij Kalaria, an EECS PhD student at UC Berkeley.",
+    longDescription: "This ongoing research connects visual perception with policy-based robot control for table tennis. Working with Dvij Kalaria, an EECS PhD student at UC Berkeley, I am developing ball detection through YOLO fine-tuning, AprilTag-based spatial calibration, and coordinate transformations into a shared reference frame. Stereo-camera observations are used to develop estimates of ball position, velocity, and acceleration for integration with a policy-based striking controller.",
+    stack: ["YOLO", "AprilTag", "Stereo Vision", "Policy-Based Control"],
+    highlights: ["Work on YOLO fine-tuning for table-tennis ball detection.", "Use AprilTag-based calibration and coordinate transformations to relate camera observations to a shared reference frame.", "Develop stereo-vision estimates of ball position, velocity, and acceleration.", "Work toward integrating perception with a policy-based striking controller; research is ongoing."],
+    links: [{label: "Contact", href: "/resume#contact"}],
+    visual: {label: "Perception to Control", code: "R5", accent: "#386450", surface: "#E5EBDD", grid: "#B5C5AC"},
+  },
+
+  {
+    slug: "a-share-intraday-forecasting",
+    name: "Do Corporate Disclosures Improve Intraday Forecasts? Evidence from a Point-in-Time China A-Share Panel",
+    category: "Financial Forecasting · Research Manuscript",
+    year: "2026",
+    description: "A point-in-time study of 479,540 stock-day observations testing whether corporate disclosures add predictive value beyond intraday price sequences.",
+    longDescription: "Coauthored with Xueshi Bai, this study forecasts whether a stock’s 15:00 close will exceed its 11:30 close using morning five-minute price bars and information available at the forecast cutoff. The panel covers 493 historical CSI 300 constituents across 1,601 trading dates from 2020 to 2026, alongside 435,374 CNInfo announcements. A five-seed temporal convolutional network ensemble finds a small, reproducible price-sequence signal, while structured disclosures and frozen text representations show no robust incremental forecasting value. Transaction-cost analysis separates predictive accuracy from executable economic value.",
+    stack: ["Time-Series Forecasting", "TCN", "Financial NLP", "Point-in-Time Evaluation"],
+    highlights: [
+      "Constructed a point-in-time panel of 479,540 stock-day observations with historical index membership and conservative disclosure availability rules.",
+      "Evaluated a five-seed TCN ensemble using five expanding-window folds and trading-date-clustered bootstrap inference.",
+      "Price-only out-of-fold AUC was 0.5482 versus 0.5223 for the summary-feature baseline; tested disclosures added no reliable signal.",
+      "Filing-body coverage reached 98.73%; positive gross portfolio returns became negative after a five-basis-point round-trip cost."
+    ],
+    links: [{label: "Contact", href: "/resume#contact"}],
+    paper: {label: "Read paper", href: "/a-share-intraday-forecasting.pdf"},
+    visual: {label: "Disclosures & Price Signals", code: "R4", accent: "#386450", surface: "#E5EBDD", grid: "#B5C5AC"},
+  },
+
   {
     slug: "predicting-fraudulent-transactions",
     name: "Predicting Fraudulent Transactions: A Comparative Study",
@@ -134,6 +166,17 @@ export const research: PortfolioEntry[] = [
 ];
 
 export const projects: PortfolioEntry[] = [
+  {
+    slug: "personal-portfolio-website", name: "Personal Portfolio Website",
+    category: "Web Engineering", year: "2026",
+    description: "A personal space for applied AI, research, software, and visual art.",
+    longDescription: "I built this responsive portfolio with Next.js and TypeScript, reusable components, custom routes, and Git-based version control. It brings research, software projects, and an art collection together under a custom domain, with a server-side chat interface for exploring my background.",
+    stack: ["Next.js", "TypeScript", "Cloudflare", "Git"],
+    highlights: ["Built reusable components and dedicated research and project routes.", "Created galleries for painting, drawing, design, and photography.", "Implemented a server-side chat endpoint and downloadable resume."],
+    links: [{label: "Visit homepage", href: "/"}],
+    visual: {label: "A Personal Space", code: "P5", accent: "#AD563D", surface: "#F2E4D8", grid: "#D6B9A6"},
+  },
+
   {
     slug: "braille-calculator-initiative",
     name: "Braille Calculator Initiative",
@@ -245,6 +288,9 @@ export const skills = [
   "NumPy",
   "scikit-learn",
   "TensorFlow",
+  "YOLO",
+  "AprilTag",
+  "Stereo Vision",
   "Next.js",
   "n8n",
   "LLM APIs",
@@ -299,6 +345,13 @@ export const education: ResumeItem[] = [
 
 export const experience: ResumeItem[] = [
   {
+    title: "Software Engineering Intern",
+    subtitle: "Captain.ai | Startup",
+    period: "Oct 2026 - Present",
+    body: "Develop iOS application features and an email system supporting automated email workflows. Build workflow automation connecting application functionality with email operations.",
+  },
+
+  {
     title: "Industry Research & Mapping Intern",
     subtitle: "MiraclePlus | Beijing, China",
     period: "May 2026 - Aug 2026",
@@ -319,14 +372,6 @@ export const experience: ResumeItem[] = [
 ];
 
 export const homepageProjects: HomepageProject[] = [
-  {
-    name: "Personal Finance Data Assistant",
-    category: "AI & Financial Data",
-    year: "2026",
-    stack: ["Python", "SQL", "LLM APIs", "Tool Calling"],
-    description:
-      "Prototyped an LLM-based assistant for analyzing 120 days of transaction history, including recurring charges, spending categories, and cash-flow patterns. Its tool-calling architecture retrieves only the relevant transaction subsets on demand.",
-  },
   {
     name: "Personal Portfolio Website",
     category: "Web Engineering",

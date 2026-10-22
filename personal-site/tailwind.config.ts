@@ -11,8 +11,8 @@ const config: Config = {
       colors: {
         canvas: "#f7f3ec",
         surface: "#fffdf8",
-        ink: "#1f2833",
-        muted: "#5f6773",
+        ink: "#23483f",
+        muted: "#657368",
         border: "#d6d0c6",
         accent: "#b8a57c",
         panel: "#f3ede4",

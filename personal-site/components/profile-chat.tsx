@@ -13,9 +13,9 @@ type Message = {
 };
 
 const starterQuestions = [
-  "What kinds of projects are you looking for?",
-  "Tell me about your rainfall forecasting research.",
-  "What are your interests outside of coursework?",
+  "How are you teaching a robot to play table tennis?",
+  "What are you building at Captain.ai?",
+  "What did you find in your A-share forecasting research?",
 ];
 
 const initialMessage: Message = {

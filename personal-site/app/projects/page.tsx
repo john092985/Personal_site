@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-
-export default function ProjectsPage() {
-  redirect("/#projects");
-}
+import Link from "next/link";
+import { projects } from "@/data/portfolio";
+export const metadata = {title: "Selected Work"};
+export default function ProjectsPage(){return <div className="listing-page"><p className="overline">PROJECTS / IDEAS IN PRACTICE</p><h1>Things I’ve <em>built.</em></h1><p className="listing-intro">Applied AI, accessible tools, and community projects. Different ways of turning curiosity into something useful.</p><div className="listing-grid">{projects.map((item,i)=><Link className="listing-card" href={`/projects/${item.slug}`} key={item.slug}><div className="listing-number">0{i+1}<span>↗</span></div><p className="overline">{item.category} / {item.year}</p><h2>{item.name}</h2><p>{item.description}</p><div className="tag-list">{item.stack.map(tag=><span key={tag}>{tag}</span>)}</div></Link>)}</div></div>}
