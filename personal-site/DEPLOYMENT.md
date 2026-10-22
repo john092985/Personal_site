@@ -39,6 +39,6 @@ Wrangler requires Cloudflare authentication to deploy.
 
 ## Domain and verification
 
-First verify the workers.dev address: homepage, `/research/robot-table-tennis/`, `/resume/`, the PDF download, and a chat response. Then attach `jingxuanlyu.com` through Settings > Domains & Routes > Custom Domain. Check existing Pages/custom-domain ownership before moving it to the Worker.
+First verify the workers.dev address: homepage, `/research/robot-table-tennis/`, `/resume/`, the PDF download, and a chat response. The production Worker uses the route `*jingxuanlyu.com/*` in zone `jingxuanlyu.com`, covering the root domain and www while preserving existing proxied DNS records. This route is recorded in `wrangler.jsonc` so subsequent deployments retain it. Runtime secrets stay in Cloudflare; only the provider URL and model name are in source control.
 
 Source: https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/
