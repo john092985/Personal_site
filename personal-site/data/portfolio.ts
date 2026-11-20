@@ -42,7 +42,7 @@ export type HomepageProject = {
 
 export const resumeDocument = {
   label: "Download Resume",
-  href: "/Jingxuan-Lyu-Resume.pdf?v=20261021",
+  href: "/Jingxuan-Lyu-Resume.pdf?v=20261119",
 };
 
 export const research: PortfolioEntry[] = [
@@ -301,10 +301,11 @@ export const skills = [
 ];
 
 export const coursework = [
-  "Data Structures (CS 61B)",
-  "Discrete Mathematics and Probability Theory (CS 70)",
-  "Structure and Interpretation of Computer Programs (CS 61A)",
-  "Foundations of Data Science (Data C8)",
+  "Data Structures",
+  "Efficient Algorithms and Intractable Problems",
+  "Introduction to Machine Learning",
+  "Probability and Random Processes",
+  "Structure and Interpretation of Computer Programs",
 ];
 
 export const contactLinks = [
@@ -334,8 +335,8 @@ export const education: ResumeItem[] = [
   {
     title: "University of California, Berkeley",
     subtitle: "B.A. in Data Science",
-    period: "Expected May 2029",
-    body: "Relevant coursework: Data Structures (CS 61B), Discrete Mathematics and Probability Theory (CS 70), Structure and Interpretation of Computer Programs (CS 61A), and Foundations of Data Science (Data C8).",
+    period: "Expected 28-29",
+    body: `Relevant coursework: ${coursework.join(", ")}.`,
     image: "/berkeley-campus.png",
     imagePosition: "center 34%",
     imageScale: 1.08,
@@ -345,8 +346,8 @@ export const education: ResumeItem[] = [
 
 export const experience: ResumeItem[] = [
   {
-    title: "Software Engineering Intern",
-    subtitle: "Captain.ai | Startup",
+    title: "Full Stack Developer",
+    subtitle: "Captain.ai | San Jose, CA",
     period: "Oct 2026 - Present",
     body: "Develop iOS application features and an email system supporting automated email workflows. Build workflow automation connecting application functionality with email operations.",
   },
@@ -367,18 +368,18 @@ export const experience: ResumeItem[] = [
     title: "Data Analyst Intern",
     subtitle: "London Stock Exchange Group | Beijing, China",
     period: "Apr 2024 - Aug 2024",
-    body: "Analyzed customer and transaction datasets with Python and Azure SQL for credit-risk and customer-risk workflows, and built reusable data-cleaning and transformation pipelines for downstream analysis.",
+    body: "Used Python and Azure SQL to extract features, transform customer and transaction data, and produce output tables.",
   },
 ];
 
 export const homepageProjects: HomepageProject[] = [
   {
-    name: "Personal Portfolio Website",
+    name: "Personal Website",
     category: "Web Engineering",
     year: "2026",
     stack: ["Next.js", "TypeScript", "Cloudflare Pages", "Git"],
     description:
-      "Built and deployed this responsive portfolio with reusable components, custom routing, a custom domain, and Git-based version control.",
+      "Built and deployed this responsive portfolio at jingxuanlyu.com.",
   },
   {
     name: "Fraud Transaction Detection",

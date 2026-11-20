@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { experience, coursework, skills, research, resumeDocument } from "@/data/portfolio";
+import { experience, education, coursework, skills, research, resumeDocument } from "@/data/portfolio";
 export default function HomePage() {
 const featuredRobot = research.find(item => item.slug === "robot-table-tennis")!;
 const featuredPaper = research.find(item => item.slug === "a-share-intraday-forecasting")!;
@@ -28,7 +28,7 @@ return <div className="editorial-home">
 </section>
 <section className="home-section experience-section" id="experience"><div><p className="overline">02 / INTERNSHIP</p><h2>Internship</h2><p className="section-aside">Different teams, new perspectives.<br/>A shared interest in useful technology.</p><Link className="text-link" href="/resume">My resume ↗</Link></div><div>{experience.map(item=><article className="experience-row" key={item.title}><p className="overline">{item.period}</p><h3>{item.title}</h3><p className="company">{item.subtitle}</p><p>{item.body}</p></article>)}</div></section>
 <section className="art-invitation"><div className="art-preview"><Image src="/art/painting/blue-flowers-final.jpg" alt="Blue Flowers, a painting by Jingxuan" fill sizes="(max-width: 760px) 90vw, 480px" className="object-cover"/></div><div className="art-invitation-copy"><p className="overline">03 / BEYOND THE SCREEN</p><h2>A different way<br/>of <em>seeing.</em></h2><p>Painting, photography, and small observations. A collection of the things I notice when I step away from code.</p><Link className="text-link" href="/art">Step into the collection ↗</Link></div></section>
-<section className="home-section education-section"><div><p className="overline">04 / FOUNDATION</p><h2>Always a student.</h2><h3>University of California, Berkeley</h3><p>Data Science · Expected May 2029</p><p className="coursework">{coursework.join(" / ")}</p></div><div><p className="overline">MY TOOLKIT</p><div className="tag-list toolkit">{skills.map(skill=><span key={skill}>{skill}</span>)}</div></div></section>
+<section className="home-section education-section"><div><p className="overline">04 / FOUNDATION</p><h2>Always a student.</h2><h3>University of California, Berkeley</h3><p>Data Science · {education[0].period}</p><p className="coursework">{coursework.join(" / ")}</p></div><div><p className="overline">MY TOOLKIT</p><div className="tag-list toolkit">{skills.map(skill=><span key={skill}>{skill}</span>)}</div></div></section>
 <section className="contact-invitation"><p className="overline">GOOD THINGS START WITH A CONVERSATION</p><h2>Have something <em>in mind?</em></h2><p>I’m interested in opportunities across AI, data, and software.<br/>I’d love to hear what you’re working on.</p><Link className="solid-button" href="mailto:jingxuan.lyu@berkeley.edu">Say hello ↗</Link><Link className="contact-chat" href="/chat">Or explore my background through chat →</Link></section>
 </div>;
 }
